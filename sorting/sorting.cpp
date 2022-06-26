@@ -1,3 +1,4 @@
+#include "insertion_sort.h"
 #include "selection_sort.h"
 
 #include "helper_functions.h"
@@ -36,6 +37,7 @@ int main()
     int arr[]{5, 2, 4, 6, 1};
     int sorted_arr[]{1, 2, 4, 5, 6};
 
+    test_sorting_algo("Insertion Sort", insertion_sort, arr, sorted_arr, 5);
     test_sorting_algo("Selection Sort", selection_sort, arr, sorted_arr, 5);
 
     return 0;
