@@ -1,5 +1,6 @@
 #include "bubble_sort.h"
 #include "insertion_sort.h"
+#include "merge_sort.h"
 #include "selection_sort.h"
 
 #include "helper_functions.h"
@@ -40,6 +41,7 @@ int main()
 
     test_sorting_algo("Bubble Sort", bubble_sort, arr, sorted_arr, 5);
     test_sorting_algo("Insertion Sort", insertion_sort, arr, sorted_arr, 5);
+    test_sorting_algo("Merge Sort", merge_sort, arr, sorted_arr, 5);
     test_sorting_algo("Selection Sort", selection_sort, arr, sorted_arr, 5);
 
     return 0;
