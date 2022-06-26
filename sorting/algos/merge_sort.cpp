@@ -3,7 +3,6 @@
 #include "helper_functions.h"
 
 #include <algorithm>
-#include <iostream>
 
 void merge(int *arr, int start, int mid, int end)
 {
