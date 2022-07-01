@@ -53,7 +53,7 @@ void divide(int *arr, int start, int end)
     // ----- recursive case -----
     else
     {
-        const int mid = (start + end) / 2;
+        const int mid = mid_point(start, end);
 
         // Recursively divide array into 2
         divide(arr, start, mid); // lower half: [start, mid)

@@ -86,15 +86,12 @@ int main()
     srand(time(NULL));
 
     // Test the sorting algorithms on random arrays of different sizes
-
     test_algos(0);
     test_algos(1);
     test_algos(2);
 
     test_algos(5);
     test_algos(10);
-
-    // TODO: quicksort seems to hang sometimes?
 
     return 0;
 }
