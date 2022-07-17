@@ -5,30 +5,35 @@
 int partition(int *arr, int start, int end)
 {
     // Choose the middle element as the pivot
-    const int pivot = arr[(start + end) / 2];
+    const int pivot_val = arr[mid_point(start, end)];
 
-    // Initiate left and right pointers
-    int left_i = start;
-    int right_i = end - 1;
+    // Initiate left and right pointers to be offset by 1
+    int left_i = start - 1;
+    int right_i = end;
 
     // Move pointers until they meet, swapping elements as necessary
-    while (left_i < right_i)
+    while (true)
     {
-        // Move left pointer right until it finds a value greater than pivot
-        while (arr[left_i] < pivot)
+        // Move left pointer right until the value is >= the pivot
+        do
+        {
             left_i++;
+        } while (arr[left_i] < pivot_val);
 
-        // Move right pointer left until it finds a value less than pivot
-        while (arr[right_i] > pivot)
+        // Move right pointer left until the value is <= the pivot
+        do
+        {
             right_i--;
+        } while (arr[right_i] > pivot_val);
+
+        // The elements are partitioned into 2 parts less than and greater than pivot
+        // Return the index of the pivot if the pointers meet
+        if (left_i >= right_i)
+            return left_i;
 
         // Swap the values because there is an inversion
         swap(arr, left_i, right_i);
     }
-
-    // The elements are partitioned into 2 parts less than and greater than pivot
-    // Return the index of where the pivot is
-    return left_i;
 }
 
 void quick_sort(int *arr, int start, int end)
@@ -44,9 +49,9 @@ void quick_sort(int *arr, int start, int end)
         // Partition the array and get the index of the pivot
         const int pivot = partition(arr, start, end);
 
-        // Recursively sort the subarrays, left and right of the pivot
-        quick_sort(arr, start, pivot);   // left subarray : [start, pivot)
-        quick_sort(arr, pivot + 1, end); // right subarray: [pivot + 1, end)
+        // Recursively sort the subarrays
+        quick_sort(arr, start, pivot); // left subarray : [start, pivot)
+        quick_sort(arr, pivot, end);   // right subarray: [pivot, end)
     }
 }
 

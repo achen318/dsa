@@ -93,5 +93,7 @@ int main()
     test_algos(5);
     test_algos(10);
 
+    test_algos(100);
+
     return 0;
 }
