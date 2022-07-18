@@ -3,5 +3,5 @@
 # ./run <category>
 
 cd $1
-g++ -std=c++2a -O2 -Wall -I algos $1.cpp algos/*.cpp -o $1
+g++ -std=c++2a -O2 -Wall -I include $1.cpp src/*.cpp -o $1
 ./$1
