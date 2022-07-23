@@ -17,7 +17,7 @@ void ArrayList::resize()
 
     // Copy the old array into the new array
     for (int i = 0; i < this->size; i++)
-        new_array[i] = this->array[i];
+        new_array[i] = this->get(i);
 
     // Delete the old array
     delete[] this->array;
@@ -53,7 +53,7 @@ int ArrayList::get(int index)
 bool ArrayList::has(int value)
 {
     for (int i = 0; i < this->size; i++)
-        if (this->array[i] == value)
+        if (this->get(i) == value)
             return true;
 
     return false;
@@ -77,12 +77,12 @@ void ArrayList::add(int index, int value)
     if (this->size == this->capacity)
         this->resize();
 
-    // Shift all elements after the index to the right
-    for (int i = this->size; i > index; i--)
-        this->array[i] = this->array[i - 1];
-
     // Increment the size
     this->size++;
+
+    // Shift all elements after the index to the right
+    for (int i = this->size - 1; i > index; i--)
+        this->set(i, this->get(i - 1));
 
     // Set the value at the index
     this->set(index, value);
@@ -111,7 +111,7 @@ void ArrayList::display()
 
     for (int i = 0; i < this->size; i++)
     {
-        std::cout << this->array[i];
+        std::cout << this->get(i);
 
         // If this is not the last element, add a separator
         if (i != this->size - 1)
@@ -123,8 +123,8 @@ void ArrayList::display()
 
 void ArrayList::display_info()
 {
-    std::cout << "Array    - ";
+    std::cout << "ArrayList - ";
     this->display();
-    std::cout << "Size     - " << this->size << '\n';
-    std::cout << "Capacity - " << this->capacity << "\n\n";
+    std::cout << "Size      - " << this->size << '\n';
+    std::cout << "Capacity  - " << this->capacity << "\n\n";
 }
