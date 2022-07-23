@@ -9,6 +9,7 @@ void test_array_list(int size)
 
     // Create an array list
     ArrayList array_list;
+    array_list.display_info();
 
     // Fill the array list with values between 1 and size
     for (int i = 1; i <= size; i++)

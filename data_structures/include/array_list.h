@@ -14,7 +14,6 @@ private:
 public:
     // Constructors
     ArrayList();
-    ArrayList(int capacity);
 
     // Getters
     int get_size();

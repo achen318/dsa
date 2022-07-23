@@ -3,8 +3,6 @@
 #include "helper_functions.h"
 
 #include <iostream>
-#include <stdexcept>
-#include <string>
 
 // ----- Private methods -----
 void ArrayList::resize()
@@ -27,16 +25,11 @@ void ArrayList::resize()
 }
 
 // ----- Constructors -----
-ArrayList::ArrayList() : ArrayList(1) {}
-
-ArrayList::ArrayList(int capacity)
+ArrayList::ArrayList()
 {
-    if (capacity < 1)
-        throw std::invalid_argument("'capacity' of " + std::to_string(capacity) + "must be greater than 0");
-
     this->size = 0;
-    this->capacity = capacity;
-    this->array = new int[capacity];
+    this->capacity = 1;
+    this->array = new int[1];
 }
 
 // ----- Getters -----
