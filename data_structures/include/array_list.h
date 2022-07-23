@@ -10,7 +10,6 @@ private:
 
     // Private methods
     void resize();
-    int assert_index(int index);
 
 public:
     // Constructors

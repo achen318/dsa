@@ -1,5 +1,7 @@
 #include "array_list.h"
 
+#include "helper_functions.h"
+
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -24,16 +26,6 @@ void ArrayList::resize()
     this->array = new_array;
 }
 
-int ArrayList::assert_index(int index)
-{
-    const int size = this->size;
-
-    if (index < 0 || index >= size)
-        throw std::out_of_range("'index' of " + std::to_string(index) + " is out of range");
-
-    return index;
-}
-
 // ----- Constructors -----
 ArrayList::ArrayList() : ArrayList(1) {}
 
@@ -55,7 +47,7 @@ int ArrayList::get_size()
 
 int ArrayList::get(int index)
 {
-    return this->array[assert_index(index)];
+    return this->array[assert_index(index, this->size)];
 }
 
 bool ArrayList::has(int value)
@@ -70,7 +62,7 @@ bool ArrayList::has(int value)
 // ----- Setters -----
 void ArrayList::set(int index, int value)
 {
-    this->array[assert_index(index)] = value;
+    this->array[assert_index(index, this->size)] = value;
 }
 
 // ----- Mutators -----
