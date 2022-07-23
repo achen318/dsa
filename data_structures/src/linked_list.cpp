@@ -1,21 +1,29 @@
 #include "linked_list.h"
 
-#include "helper_functions.h"
-
 #include <iostream>
+#include <stdexcept>
+#include <string>
 
 // ----- Private methods -----
 LinkedList::Node *LinkedList::get_node(int index)
 {
     Node *node = this->head;
 
-    for (int i = 0; i < assert_index(index, this->size); i++)
+    for (int i = 0; i < assert_index(index); i++)
         node = node->next;
 
     return node;
 }
 
-// ----- Constructors -----
+int LinkedList::assert_index(int index)
+{
+    if (index < 0 || index >= this->size)
+        throw std::out_of_range("'index' of " + std::to_string(index) + " is out of range");
+
+    return index;
+}
+
+// ----- Constructor -----
 LinkedList::LinkedList()
 {
     this->head = nullptr;

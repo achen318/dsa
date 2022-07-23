@@ -1,8 +1,8 @@
 #include "array_list.h"
 
-#include "helper_functions.h"
-
 #include <iostream>
+#include <stdexcept>
+#include <string>
 
 // ----- Private methods -----
 void ArrayList::resize()
@@ -24,7 +24,15 @@ void ArrayList::resize()
     this->array = new_array;
 }
 
-// ----- Constructors -----
+int ArrayList::assert_index(int index)
+{
+    if (index < 0 || index >= this->size)
+        throw std::out_of_range("'index' of " + std::to_string(index) + " is out of range");
+
+    return index;
+}
+
+// ----- Constructor -----
 ArrayList::ArrayList()
 {
     this->size = 0;
@@ -40,7 +48,7 @@ int ArrayList::get_size()
 
 int ArrayList::get(int index)
 {
-    return this->array[assert_index(index, this->size)];
+    return this->array[assert_index(index)];
 }
 
 bool ArrayList::has(int value)
@@ -55,7 +63,7 @@ bool ArrayList::has(int value)
 // ----- Setters -----
 void ArrayList::set(int index, int value)
 {
-    this->array[assert_index(index, this->size)] = value;
+    this->array[assert_index(index)] = value;
 }
 
 // ----- Mutators -----

@@ -22,9 +22,10 @@ private:
 
     // Private methods
     Node *get_node(int index);
+    int assert_index(int index);
 
 public:
-    // Constructors
+    // Constructor
     LinkedList();
 
     // Getters
