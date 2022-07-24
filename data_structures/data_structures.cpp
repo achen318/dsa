@@ -1,5 +1,6 @@
 #include "array_list.h"
 #include "linked_list.h"
+#include "stack.h"
 
 #include <iostream>
 
@@ -55,12 +56,36 @@ void test_linked_list(int size)
     }
 }
 
+void test_stack(int size)
+{
+    std::cout << "----- Stack -----" << '\n';
+
+    // Create a stack
+    Stack stack;
+    stack.display_info();
+
+    // Fill the stack with values between 1 and size
+    for (int i = 1; i <= size; i++)
+    {
+        stack.push(i);
+        stack.display_info();
+    }
+
+    // Test push() and pop()
+    stack.push(0);
+    stack.display_info();
+
+    stack.pop();
+    stack.display_info();
+}
+
 int main()
 {
     constexpr int size = 3;
 
     test_array_list(size);
     test_linked_list(size);
+    test_stack(size);
 
     return 0;
 }
