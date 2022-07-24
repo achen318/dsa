@@ -1,7 +1,5 @@
 #include "stack.h"
 
-#include "array_list.h"
-
 #include <iostream>
 #include <string>
 
