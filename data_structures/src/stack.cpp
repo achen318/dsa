@@ -17,10 +17,10 @@ int Stack::get_size()
 
 int Stack::peek()
 {
-    const int top = this->pop();
-    this->push(top);
+    ArrayList *stack = this->stack;
+    const int last_index = stack->get_size() - 1;
 
-    return top;
+    return stack->get(last_index);
 }
 
 // ----- Mutators -----
