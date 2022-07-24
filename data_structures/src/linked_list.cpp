@@ -143,5 +143,5 @@ void LinkedList::display_info()
 {
     std::cout << "LinkedList - ";
     this->display();
-    std::cout << "Size       - " << this->size << "\n";
+    std::cout << "Size       - " << this->size << "\n\n";
 }
