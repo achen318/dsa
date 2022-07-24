@@ -1,5 +1,6 @@
 #include "array_list.h"
 #include "linked_list.h"
+#include "queue.h"
 #include "stack.h"
 
 #include <iostream>
@@ -56,6 +57,32 @@ void test_linked_list(int size)
     }
 }
 
+void test_queue(int size)
+{
+    std::cout << "----- Queue -----" << '\n';
+
+    // Create a queue
+    Queue queue;
+    queue.display_info();
+
+    // Fill the queue with values between 1 and size
+    for (int i = 1; i <= size; i++)
+    {
+        queue.enqueue(i);
+        queue.display_info();
+    }
+
+    // Test enqueue() and dequeue()
+    for (int i = 0; i <= size; i++)
+    {
+        queue.enqueue(i);
+        queue.display_info();
+
+        queue.dequeue();
+        queue.display_info();
+    }
+}
+
 void test_stack(int size)
 {
     std::cout << "----- Stack -----" << '\n';
@@ -85,6 +112,7 @@ int main()
 
     test_array_list(size);
     test_linked_list(size);
+    test_queue(size);
     test_stack(size);
 
     return 0;
