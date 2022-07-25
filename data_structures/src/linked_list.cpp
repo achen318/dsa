@@ -41,13 +41,13 @@ int LinkedList::get(int index)
     return this->get_node(index)->value;
 }
 
-bool LinkedList::has(int value)
+int LinkedList::find(int value)
 {
     for (int i = 0; i < this->size; i++)
         if (this->get(i) == value)
-            return true;
+            return i;
 
-    return false;
+    return -1;
 }
 
 // ----- Setters -----
@@ -121,6 +121,18 @@ int LinkedList::remove(int index)
 
     // Return the value of the removed node
     return removed;
+}
+
+int LinkedList::remove_value(int value)
+{
+    // Find the index of the first occurrence of the value
+    const int index = this->find(value);
+
+    // Remove the value at the index
+    if (index != -1)
+        this->remove(index);
+
+    return index;
 }
 
 // ----- Display -----

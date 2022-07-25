@@ -51,13 +51,13 @@ int ArrayList::get(int index)
     return this->array[assert_index(index)];
 }
 
-bool ArrayList::has(int value)
+int ArrayList::find(int value)
 {
     for (int i = 0; i < this->size; i++)
         if (this->get(i) == value)
-            return true;
+            return i;
 
-    return false;
+    return -1;
 }
 
 // ----- Setters -----
@@ -103,6 +103,18 @@ int ArrayList::remove(int index)
 
     // Return the removed value
     return removed;
+}
+
+int ArrayList::remove_value(int value)
+{
+    // Find the index of the first occurrence of the value
+    const int index = this->find(value);
+
+    // Remove the value at the index
+    if (index != -1)
+        this->remove(index);
+
+    return index;
 }
 
 // ----- Display -----

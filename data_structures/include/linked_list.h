@@ -32,7 +32,7 @@ public:
     int get_size();
 
     int get(int index);
-    bool has(int value);
+    int find(int value);
 
     // Setters
     void set(int index, int value);
@@ -42,6 +42,7 @@ public:
     void add(int index, int value);
 
     int remove(int index);
+    int remove_value(int value);
 
     // Display
     void display();
