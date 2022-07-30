@@ -1,4 +1,5 @@
 #include "array_list.h"
+#include "hash_map.h"
 #include "linked_list.h"
 #include "queue.h"
 #include "stack.h"
@@ -28,6 +29,32 @@ void test_array_list(int size)
 
         array_list.remove(i);
         array_list.display_info();
+    }
+}
+
+void test_hash_map(int size)
+{
+    std::cout << "----- HashMap -----" << '\n';
+
+    // Create a hash map
+    HashMap hash_map;
+    hash_map.display_info();
+
+    // Fill the hash map with key/value pairs of (1, 1) to (size, size)
+    for (int i = 1; i <= size; i++)
+    {
+        hash_map.add(i, i);
+        hash_map.display_info();
+    }
+
+    // Test set() and remove()
+    for (int i = 1; i <= size; i++)
+    {
+        hash_map.set(i, 2 * i);
+        hash_map.display_info();
+
+        hash_map.remove(i);
+        hash_map.display_info();
     }
 }
 
@@ -108,9 +135,10 @@ void test_stack(int size)
 
 int main()
 {
-    constexpr int size = 3;
+    constexpr int size = 5;
 
     test_array_list(size);
+    test_hash_map(size);
     test_linked_list(size);
     test_queue(size);
     test_stack(size);
