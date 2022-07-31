@@ -14,7 +14,7 @@ int Queue::get_size() const
 
 int Queue::peek() const
 {
-    return (this->queue)->get(0);
+    return (*this->queue)[0];
 }
 
 // ----- Mutators -----
@@ -35,7 +35,7 @@ std::ostream &operator<<(std::ostream &out, const Queue &queue)
 
     for (int i = 0; i < queue.get_size(); i++)
     {
-        out << queue.queue->get(i);
+        out << (*queue.queue)[i];
 
         // If this is not the last element, add a separator
         if (i != queue.get_size() - 1)

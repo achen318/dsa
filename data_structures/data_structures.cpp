@@ -21,13 +21,13 @@ void test_array_list(int size)
         array_list.display_info();
     }
 
-    // Test add() and remove()
-    for (int i = 0; i <= size; i++)
+    // Test operator[] and remove()
+    for (int i = 0; i < size; i++)
     {
-        array_list.add(i, 0);
+        array_list[0] = 2 * (i + 1);
         array_list.display_info();
 
-        array_list.remove(i);
+        array_list.remove(0);
         array_list.display_info();
     }
 }
@@ -73,13 +73,13 @@ void test_linked_list(int size)
         linked_list.display_info();
     }
 
-    // Test add() and remove()
-    for (int i = 0; i <= size; i++)
+    // Test operator[] and remove()
+    for (int i = 0; i < size; i++)
     {
-        linked_list.add(i, 0);
+        linked_list[0] = 2 * (i + 1);
         linked_list.display_info();
 
-        linked_list.remove(i);
+        linked_list.remove(0);
         linked_list.display_info();
     }
 }
