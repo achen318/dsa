@@ -18,14 +18,13 @@ public:
     // Constructor
     ArrayList();
 
+    // Subscription
+    int &operator[](int index);
+    int operator[](int index) const;
+
     // Getters
     int get_size() const;
-
-    int get(int index) const;
     int find(int value) const;
-
-    // Setters
-    void set(int index, int value);
 
     // Mutators
     void add(int value);

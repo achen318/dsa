@@ -29,30 +29,30 @@ LinkedList::LinkedList()
     this->size = 0;
 }
 
+// ----- Subscription -----
+int &LinkedList::operator[](int index)
+{
+    return this->get_node(index)->value;
+}
+
+int LinkedList::operator[](int index) const
+{
+    return this->get_node(index)->value;
+}
+
 // ----- Getters -----
 int LinkedList::get_size() const
 {
     return this->size;
 }
 
-int LinkedList::get(int index) const
-{
-    return this->get_node(index)->value;
-}
-
 int LinkedList::find(int value) const
 {
     for (int i = 0; i < this->size; i++)
-        if (this->get(i) == value)
+        if ((*this)[i] == value)
             return i;
 
     return -1;
-}
-
-// ----- Setters -----
-void LinkedList::set(int index, int value)
-{
-    this->get_node(index)->value = value;
 }
 
 // ----- Mutators -----
@@ -141,7 +141,7 @@ std::ostream &operator<<(std::ostream &out, const LinkedList &linked_list)
 
     for (int i = 0; i < linked_list.size; i++)
     {
-        out << linked_list.get(i);
+        out << linked_list[i];
 
         if (i < linked_list.size - 1)
             out << " -> ";

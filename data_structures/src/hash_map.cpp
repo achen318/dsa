@@ -25,7 +25,7 @@ void HashMap::resize()
     // Rehash the entries into the new table
     for (int i = 0; i < this->size; i++)
     {
-        this->chain_add((this->keys).get(i), (this->values).get(i));
+        this->chain_add((this->keys)[i], (this->values)[i]);
     }
 }
 
@@ -161,7 +161,7 @@ void HashMap::set(int key, int value)
 
     // Update the values array
     const int index = this->keys.find(key);
-    this->values.set(index, value);
+    this->values[index] = value;
 }
 
 // ----- Mutators -----

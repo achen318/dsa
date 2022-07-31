@@ -23,52 +23,44 @@ ArrayList - [1, 2, 3, 4, 5]
 Size      - 5
 Capacity  - 8
 
-ArrayList - [0, 1, 2, 3, 4, 5]
-Size      - 6
-Capacity  - 8
-
-ArrayList - [1, 2, 3, 4, 5]
+ArrayList - [2, 2, 3, 4, 5]
 Size      - 5
 Capacity  - 8
 
-ArrayList - [1, 0, 2, 3, 4, 5]
-Size      - 6
+ArrayList - [2, 3, 4, 5]
+Size      - 4
 Capacity  - 8
 
-ArrayList - [1, 2, 3, 4, 5]
-Size      - 5
+ArrayList - [4, 3, 4, 5]
+Size      - 4
 Capacity  - 8
 
-ArrayList - [1, 2, 0, 3, 4, 5]
-Size      - 6
+ArrayList - [3, 4, 5]
+Size      - 3
 Capacity  - 8
 
-ArrayList - [1, 2, 3, 4, 5]
-Size      - 5
+ArrayList - [6, 4, 5]
+Size      - 3
 Capacity  - 8
 
-ArrayList - [1, 2, 3, 0, 4, 5]
-Size      - 6
+ArrayList - [4, 5]
+Size      - 2
 Capacity  - 8
 
-ArrayList - [1, 2, 3, 4, 5]
-Size      - 5
+ArrayList - [8, 5]
+Size      - 2
 Capacity  - 8
 
-ArrayList - [1, 2, 3, 4, 0, 5]
-Size      - 6
+ArrayList - [5]
+Size      - 1
 Capacity  - 8
 
-ArrayList - [1, 2, 3, 4, 5]
-Size      - 5
+ArrayList - [10]
+Size      - 1
 Capacity  - 8
 
-ArrayList - [1, 2, 3, 4, 5, 0]
-Size      - 6
-Capacity  - 8
-
-ArrayList - [1, 2, 3, 4, 5]
-Size      - 5
+ArrayList - []
+Size      - 0
 Capacity  - 8
 
 ----- HashMap -----
@@ -187,41 +179,35 @@ Size       - 4
 LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
 Size       - 5
 
-LinkedList - [0 -> 1 -> 2 -> 3 -> 4 -> 5]
-Size       - 6
-
-LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+LinkedList - [2 -> 2 -> 3 -> 4 -> 5]
 Size       - 5
 
-LinkedList - [1 -> 0 -> 2 -> 3 -> 4 -> 5]
-Size       - 6
+LinkedList - [2 -> 3 -> 4 -> 5]
+Size       - 4
 
-LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
-Size       - 5
+LinkedList - [4 -> 3 -> 4 -> 5]
+Size       - 4
 
-LinkedList - [1 -> 2 -> 0 -> 3 -> 4 -> 5]
-Size       - 6
+LinkedList - [3 -> 4 -> 5]
+Size       - 3
 
-LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
-Size       - 5
+LinkedList - [6 -> 4 -> 5]
+Size       - 3
 
-LinkedList - [1 -> 2 -> 3 -> 0 -> 4 -> 5]
-Size       - 6
+LinkedList - [4 -> 5]
+Size       - 2
 
-LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
-Size       - 5
+LinkedList - [8 -> 5]
+Size       - 2
 
-LinkedList - [1 -> 2 -> 3 -> 4 -> 0 -> 5]
-Size       - 6
+LinkedList - [5]
+Size       - 1
 
-LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
-Size       - 5
+LinkedList - [10]
+Size       - 1
 
-LinkedList - [1 -> 2 -> 3 -> 4 -> 5 -> 0]
-Size       - 6
-
-LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
-Size       - 5
+LinkedList - []
+Size       - 0
 
 ----- Queue -----
 Queue - []

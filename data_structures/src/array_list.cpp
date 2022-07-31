@@ -14,7 +14,7 @@ void ArrayList::resize()
 
     // Copy the old array into the new array
     for (int i = 0; i < this->size; i++)
-        new_array[i] = this->get(i);
+        new_array[i] = (*this)[i];
 
     // Delete the old array
     delete[] this->array;
@@ -39,30 +39,30 @@ ArrayList::ArrayList()
     this->array = new int[1];
 }
 
+// ----- Subscription -----
+int &ArrayList::operator[](int index)
+{
+    return this->array[this->assert_index(index)];
+}
+
+int ArrayList::operator[](int index) const
+{
+    return this->array[this->assert_index(index)];
+}
+
 // ----- Getters -----
 int ArrayList::get_size() const
 {
     return this->size;
 }
 
-int ArrayList::get(int index) const
-{
-    return this->array[assert_index(index)];
-}
-
 int ArrayList::find(int value) const
 {
     for (int i = 0; i < this->size; i++)
-        if (this->get(i) == value)
+        if ((*this)[i] == value)
             return i;
 
     return -1;
-}
-
-// ----- Setters -----
-void ArrayList::set(int index, int value)
-{
-    this->array[assert_index(index)] = value;
 }
 
 // ----- Mutators -----
@@ -82,20 +82,20 @@ void ArrayList::add(int index, int value)
 
     // Shift all elements after the index to the right
     for (int i = this->size - 1; i > index; i--)
-        this->set(i, this->get(i - 1));
+        (*this)[i] = (*this)[i - 1];
 
     // Set the value at the index
-    this->set(index, value);
+    (*this)[index] = value;
 }
 
 int ArrayList::remove(int index)
 {
     // Save the value at the index
-    const int removed = this->get(index);
+    const int removed = (*this)[index];
 
     // Shift all elements after the index to the left
     for (int i = index; i < this->size - 1; i++)
-        this->set(i, this->get(i + 1));
+        (*this)[i] = (*this)[i + 1];
 
     // Decrement the size
     this->size--;
@@ -123,7 +123,7 @@ std::ostream &operator<<(std::ostream &out, const ArrayList &array_list)
 
     for (int i = 0; i < array_list.size; i++)
     {
-        out << array_list.get(i);
+        out << array_list[i];
 
         // If this is not the last element, add a separator
         if (i != array_list.size - 1)
