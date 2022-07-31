@@ -1,8 +1,5 @@
 #include "stack.h"
 
-#include <iostream>
-#include <string>
-
 // ----- Constructor -----
 Stack::Stack()
 {
@@ -10,12 +7,12 @@ Stack::Stack()
 }
 
 // ----- Getters -----
-int Stack::get_size()
+int Stack::get_size() const
 {
     return (this->stack)->get_size();
 }
 
-int Stack::peek()
+int Stack::peek() const
 {
     ArrayList *stack = this->stack;
     const int last_index = stack->get_size() - 1;
@@ -38,21 +35,26 @@ int Stack::pop()
 }
 
 // ----- Display -----
-void Stack::display(int padding_len = 0)
+std::ostream &operator<<(std::ostream &out, const Stack &stack)
 {
-    std::cout << "===\n";
+    out << '[';
 
-    const std::string padding = std::string(padding_len, ' ');
+    for (int i = 0; i < stack.get_size(); i++)
+    {
+        out << stack.stack->get(i);
 
-    for (int i = 0; i < this->get_size(); i++)
-        std::cout << padding << ' ' << (this->stack)->get(i) << '\n';
+        // If this is not the last element, add a separator
+        if (i != stack.get_size() - 1)
+            out << " | ";
+    }
 
-    std::cout << padding << "===\n";
+    out << ']';
+
+    return out;
 }
 
-void Stack::display_info()
+void Stack::display_info() const
 {
-    std::cout << "Stack - ";
-    this->display(8);
+    std::cout << "Stack - " << *this << '\n';
     std::cout << "Size  - " << this->get_size() << "\n\n";
 }

@@ -1,6 +1,5 @@
 #include "hash_map.h"
 
-#include <iostream>
 #include <stdexcept>
 #include <string>
 
@@ -30,7 +29,7 @@ void HashMap::resize()
     }
 }
 
-HashMap::EntryNode *HashMap::get_entry(int key)
+HashMap::EntryNode *HashMap::get_entry(int key) const
 {
     // Get the head of the chain
     EntryNode *entry = this->table[this->hash(key)];
@@ -48,7 +47,7 @@ HashMap::EntryNode *HashMap::get_entry(int key)
     throw std::out_of_range("'key' of " + std::to_string(key) + " is not in the hash map");
 }
 
-int HashMap::hash(int key)
+int HashMap::hash(int key) const
 {
     return key % this->buckets;
 }
@@ -126,27 +125,27 @@ HashMap::HashMap()
 }
 
 // ----- Getters -----
-int HashMap::get_size()
+int HashMap::get_size() const
 {
     return this->size;
 }
 
-ArrayList HashMap::get_keys()
+ArrayList HashMap::get_keys() const
 {
     return this->keys;
 }
 
-ArrayList HashMap::get_values()
+ArrayList HashMap::get_values() const
 {
     return this->values;
 }
 
-int HashMap::get(int key)
+int HashMap::get(int key) const
 {
     return (this->get_entry(key))->value;
 }
 
-bool HashMap::has(int key)
+bool HashMap::has(int key) const
 {
     return (this->keys).find(key) != -1;
 }
@@ -202,39 +201,42 @@ void HashMap::remove(int key)
 }
 
 // ----- Display -----
-void HashMap::display(int padding_len = 0)
+std::ostream &operator<<(std::ostream &out, const HashMap &hash_map)
 {
-    std::cout << "{\n";
+    out << '{';
 
-    const std::string padding = std::string(padding_len, ' ');
+    int i = 0;
 
-    for (int i = 0; i < this->buckets; i++)
+    for (int j = 0; j < hash_map.buckets; j++)
     {
         // Get the head of the chain
-        EntryNode *entry = this->table[i];
+        HashMap::EntryNode *entry = hash_map.table[j];
 
         // Loop through the linked list to display the entries
         while (entry != nullptr)
         {
-            std::cout << padding << "  " << entry->key << ": " << entry->value << '\n';
+            out << entry->key << ": " << entry->value;
             entry = entry->next;
+
+            // If this is not the last entry, add a separator
+            if (i != hash_map.size - 1)
+                out << ", ";
+
+            // Increment the number of entries printed
+            i++;
         }
     }
 
-    std::cout << padding << "}\n";
+    out << '}';
+
+    return out;
 }
 
-void HashMap::display_info()
+void HashMap::display_info() const
 {
-    std::cout << "HashMap  - ";
-    this->display(11);
-
-    std::cout << "Keys     - ";
-    (this->keys).display();
-
-    std::cout << "Values   - ";
-    (this->values).display();
-
+    std::cout << "HashMap  - " << *this << '\n';
+    std::cout << "Keys     - " << this->keys << '\n';
+    std::cout << "Values   - " << this->values << '\n';
     std::cout << "Size     - " << this->size << '\n';
     std::cout << "Buckets  - " << this->buckets << "\n\n";
 }

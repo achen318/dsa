@@ -3,6 +3,8 @@
 
 #include "array_list.h"
 
+#include <iostream>
+
 class Queue
 {
 private:
@@ -13,17 +15,17 @@ public:
     Queue();
 
     // Getters
-    int get_size();
+    int get_size() const;
 
-    int peek();
+    int peek() const;
 
     // Mutators
     void enqueue(int value);
     int dequeue();
 
     // Display
-    void display(int padding_len);
-    void display_info();
+    friend std::ostream &operator<<(std::ostream &out, const Queue &queue);
+    void display_info() const;
 };
 
 #endif

@@ -1,6 +1,8 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
+#include <iostream>
+
 class LinkedList
 {
 private:
@@ -21,18 +23,18 @@ private:
     int size;
 
     // Private methods
-    Node *get_node(int index);
-    int assert_index(int index);
+    Node *get_node(int index) const;
+    int assert_index(int index) const;
 
 public:
     // Constructor
     LinkedList();
 
     // Getters
-    int get_size();
+    int get_size() const;
 
-    int get(int index);
-    int find(int value);
+    int get(int index) const;
+    int find(int value) const;
 
     // Setters
     void set(int index, int value);
@@ -45,8 +47,8 @@ public:
     int remove_value(int value);
 
     // Display
-    void display();
-    void display_info();
+    friend std::ostream &operator<<(std::ostream &out, const LinkedList &linked_list);
+    void display_info() const;
 };
 
 #endif

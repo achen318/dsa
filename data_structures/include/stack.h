@@ -3,6 +3,8 @@
 
 #include "array_list.h"
 
+#include <iostream>
+
 class Stack
 {
 private:
@@ -13,17 +15,17 @@ public:
     Stack();
 
     // Getters
-    int get_size();
+    int get_size() const;
 
-    int peek();
+    int peek() const;
 
     // Mutators
     void push(int value);
     int pop();
 
     // Display
-    void display(int padding_len);
-    void display_info();
+    friend std::ostream &operator<<(std::ostream &out, const Stack &stack);
+    void display_info() const;
 };
 
 #endif

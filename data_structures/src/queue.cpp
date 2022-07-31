@@ -1,8 +1,5 @@
 #include "queue.h"
 
-#include <iostream>
-#include <string>
-
 // ----- Constructor -----
 Queue::Queue()
 {
@@ -10,12 +7,12 @@ Queue::Queue()
 }
 
 // ----- Getters -----
-int Queue::get_size()
+int Queue::get_size() const
 {
     return (this->queue)->get_size();
 }
 
-int Queue::peek()
+int Queue::peek() const
 {
     return (this->queue)->get(0);
 }
@@ -32,21 +29,26 @@ int Queue::dequeue()
 }
 
 // ----- Display -----
-void Queue::display(int padding_len)
+std::ostream &operator<<(std::ostream &out, const Queue &queue)
 {
-    std::cout << "===\n";
+    out << '[';
 
-    const std::string padding = std::string(padding_len, ' ');
+    for (int i = 0; i < queue.get_size(); i++)
+    {
+        out << queue.queue->get(i);
 
-    for (int i = 0; i < this->get_size(); i++)
-        std::cout << padding << ' ' << (this->queue)->get(i) << '\n';
+        // If this is not the last element, add a separator
+        if (i != queue.get_size() - 1)
+            out << " | ";
+    }
 
-    std::cout << padding << "===\n";
+    out << ']';
+
+    return out;
 }
 
-void Queue::display_info()
+void Queue::display_info() const
 {
-    std::cout << "Queue - ";
-    this->display(8);
+    std::cout << "Queue - " << *this << '\n';
     std::cout << "Size  - " << this->get_size() << "\n\n";
 }

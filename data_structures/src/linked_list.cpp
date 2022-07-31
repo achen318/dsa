@@ -1,11 +1,10 @@
 #include "linked_list.h"
 
-#include <iostream>
 #include <stdexcept>
 #include <string>
 
 // ----- Private methods -----
-LinkedList::Node *LinkedList::get_node(int index)
+LinkedList::Node *LinkedList::get_node(int index) const
 {
     Node *node = this->head;
 
@@ -15,7 +14,7 @@ LinkedList::Node *LinkedList::get_node(int index)
     return node;
 }
 
-int LinkedList::assert_index(int index)
+int LinkedList::assert_index(int index) const
 {
     if (index < 0 || index >= this->size)
         throw std::out_of_range("'index' of " + std::to_string(index) + " is out of range");
@@ -31,17 +30,17 @@ LinkedList::LinkedList()
 }
 
 // ----- Getters -----
-int LinkedList::get_size()
+int LinkedList::get_size() const
 {
     return this->size;
 }
 
-int LinkedList::get(int index)
+int LinkedList::get(int index) const
 {
     return this->get_node(index)->value;
 }
 
-int LinkedList::find(int value)
+int LinkedList::find(int value) const
 {
     for (int i = 0; i < this->size; i++)
         if (this->get(i) == value)
@@ -136,24 +135,25 @@ int LinkedList::remove_value(int value)
 }
 
 // ----- Display -----
-void LinkedList::display()
+std::ostream &operator<<(std::ostream &out, const LinkedList &linked_list)
 {
-    std::cout << '[';
+    out << '[';
 
-    for (int i = 0; i < this->size; i++)
+    for (int i = 0; i < linked_list.size; i++)
     {
-        std::cout << this->get(i);
+        out << linked_list.get(i);
 
-        if (i < this->size - 1)
-            std::cout << " -> ";
+        if (i < linked_list.size - 1)
+            out << " -> ";
     }
 
-    std::cout << "]\n";
+    out << ']';
+
+    return out;
 }
 
-void LinkedList::display_info()
+void LinkedList::display_info() const
 {
-    std::cout << "LinkedList - ";
-    this->display();
+    std::cout << "LinkedList - " << *this << '\n';
     std::cout << "Size       - " << this->size << "\n\n";
 }

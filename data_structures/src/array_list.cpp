@@ -1,6 +1,5 @@
 #include "array_list.h"
 
-#include <iostream>
 #include <stdexcept>
 #include <string>
 
@@ -24,7 +23,7 @@ void ArrayList::resize()
     this->array = new_array;
 }
 
-int ArrayList::assert_index(int index)
+int ArrayList::assert_index(int index) const
 {
     if (index < 0 || index >= this->size)
         throw std::out_of_range("'index' of " + std::to_string(index) + " is out of range");
@@ -41,17 +40,17 @@ ArrayList::ArrayList()
 }
 
 // ----- Getters -----
-int ArrayList::get_size()
+int ArrayList::get_size() const
 {
     return this->size;
 }
 
-int ArrayList::get(int index)
+int ArrayList::get(int index) const
 {
     return this->array[assert_index(index)];
 }
 
-int ArrayList::find(int value)
+int ArrayList::find(int value) const
 {
     for (int i = 0; i < this->size; i++)
         if (this->get(i) == value)
@@ -118,26 +117,27 @@ int ArrayList::remove_value(int value)
 }
 
 // ----- Display -----
-void ArrayList::display()
+std::ostream &operator<<(std::ostream &out, const ArrayList &array_list)
 {
-    std::cout << '[';
+    out << '[';
 
-    for (int i = 0; i < this->size; i++)
+    for (int i = 0; i < array_list.size; i++)
     {
-        std::cout << this->get(i);
+        out << array_list.get(i);
 
         // If this is not the last element, add a separator
-        if (i != this->size - 1)
-            std::cout << ", ";
+        if (i != array_list.size - 1)
+            out << ", ";
     }
 
-    std::cout << "]\n";
+    out << ']';
+
+    return out;
 }
 
-void ArrayList::display_info()
+void ArrayList::display_info() const
 {
-    std::cout << "ArrayList - ";
-    this->display();
+    std::cout << "ArrayList - " << *this << '\n';
     std::cout << "Size      - " << this->size << '\n';
     std::cout << "Capacity  - " << this->capacity << "\n\n";
 }

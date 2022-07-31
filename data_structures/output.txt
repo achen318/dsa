@@ -1,0 +1,305 @@
+----- ArrayList -----
+ArrayList - []
+Size      - 0
+Capacity  - 1
+
+ArrayList - [1]
+Size      - 1
+Capacity  - 1
+
+ArrayList - [1, 2]
+Size      - 2
+Capacity  - 2
+
+ArrayList - [1, 2, 3]
+Size      - 3
+Capacity  - 4
+
+ArrayList - [1, 2, 3, 4]
+Size      - 4
+Capacity  - 4
+
+ArrayList - [1, 2, 3, 4, 5]
+Size      - 5
+Capacity  - 8
+
+ArrayList - [0, 1, 2, 3, 4, 5]
+Size      - 6
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 5]
+Size      - 5
+Capacity  - 8
+
+ArrayList - [1, 0, 2, 3, 4, 5]
+Size      - 6
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 5]
+Size      - 5
+Capacity  - 8
+
+ArrayList - [1, 2, 0, 3, 4, 5]
+Size      - 6
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 5]
+Size      - 5
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 0, 4, 5]
+Size      - 6
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 5]
+Size      - 5
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 0, 5]
+Size      - 6
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 5]
+Size      - 5
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 5, 0]
+Size      - 6
+Capacity  - 8
+
+ArrayList - [1, 2, 3, 4, 5]
+Size      - 5
+Capacity  - 8
+
+----- HashMap -----
+HashMap  - {}
+Keys     - []
+Values   - []
+Size     - 0
+Buckets  - 16
+
+HashMap  - {1: 1}
+Keys     - [1]
+Values   - [1]
+Size     - 1
+Buckets  - 16
+
+HashMap  - {1: 1, 2: 2}
+Keys     - [1, 2]
+Values   - [1, 2]
+Size     - 2
+Buckets  - 16
+
+HashMap  - {1: 1, 2: 2, 3: 3}
+Keys     - [1, 2, 3]
+Values   - [1, 2, 3]
+Size     - 3
+Buckets  - 16
+
+HashMap  - {1: 1, 2: 2, 3: 3, 4: 4}
+Keys     - [1, 2, 3, 4]
+Values   - [1, 2, 3, 4]
+Size     - 4
+Buckets  - 16
+
+HashMap  - {1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+Keys     - [1, 2, 3, 4, 5]
+Values   - [1, 2, 3, 4, 5]
+Size     - 5
+Buckets  - 16
+
+HashMap  - {1: 2, 2: 2, 3: 3, 4: 4, 5: 5}
+Keys     - [1, 2, 3, 4, 5]
+Values   - [2, 2, 3, 4, 5]
+Size     - 5
+Buckets  - 16
+
+HashMap  - {2: 2, 3: 3, 4: 4, 5: 5}
+Keys     - [2, 3, 4, 5]
+Values   - [2, 3, 4, 5]
+Size     - 4
+Buckets  - 16
+
+HashMap  - {2: 4, 3: 3, 4: 4, 5: 5}
+Keys     - [2, 3, 4, 5]
+Values   - [4, 3, 4, 5]
+Size     - 4
+Buckets  - 16
+
+HashMap  - {3: 3, 4: 4, 5: 5}
+Keys     - [3, 4, 5]
+Values   - [3, 4, 5]
+Size     - 3
+Buckets  - 16
+
+HashMap  - {3: 6, 4: 4, 5: 5}
+Keys     - [3, 4, 5]
+Values   - [6, 4, 5]
+Size     - 3
+Buckets  - 16
+
+HashMap  - {4: 4, 5: 5}
+Keys     - [4, 5]
+Values   - [4, 5]
+Size     - 2
+Buckets  - 16
+
+HashMap  - {4: 8, 5: 5}
+Keys     - [4, 5]
+Values   - [8, 5]
+Size     - 2
+Buckets  - 16
+
+HashMap  - {5: 5}
+Keys     - [5]
+Values   - [5]
+Size     - 1
+Buckets  - 16
+
+HashMap  - {5: 10}
+Keys     - [5]
+Values   - [10]
+Size     - 1
+Buckets  - 16
+
+HashMap  - {}
+Keys     - []
+Values   - []
+Size     - 0
+Buckets  - 16
+
+----- LinkedList -----
+LinkedList - []
+Size       - 0
+
+LinkedList - [1]
+Size       - 1
+
+LinkedList - [1 -> 2]
+Size       - 2
+
+LinkedList - [1 -> 2 -> 3]
+Size       - 3
+
+LinkedList - [1 -> 2 -> 3 -> 4]
+Size       - 4
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+Size       - 5
+
+LinkedList - [0 -> 1 -> 2 -> 3 -> 4 -> 5]
+Size       - 6
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+Size       - 5
+
+LinkedList - [1 -> 0 -> 2 -> 3 -> 4 -> 5]
+Size       - 6
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+Size       - 5
+
+LinkedList - [1 -> 2 -> 0 -> 3 -> 4 -> 5]
+Size       - 6
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+Size       - 5
+
+LinkedList - [1 -> 2 -> 3 -> 0 -> 4 -> 5]
+Size       - 6
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+Size       - 5
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 0 -> 5]
+Size       - 6
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+Size       - 5
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5 -> 0]
+Size       - 6
+
+LinkedList - [1 -> 2 -> 3 -> 4 -> 5]
+Size       - 5
+
+----- Queue -----
+Queue - []
+Size  - 0
+
+Queue - [1]
+Size  - 1
+
+Queue - [1 | 2]
+Size  - 2
+
+Queue - [1 | 2 | 3]
+Size  - 3
+
+Queue - [1 | 2 | 3 | 4]
+Size  - 4
+
+Queue - [1 | 2 | 3 | 4 | 5]
+Size  - 5
+
+Queue - [1 | 2 | 3 | 4 | 5 | 0]
+Size  - 6
+
+Queue - [2 | 3 | 4 | 5 | 0]
+Size  - 5
+
+Queue - [2 | 3 | 4 | 5 | 0 | 1]
+Size  - 6
+
+Queue - [3 | 4 | 5 | 0 | 1]
+Size  - 5
+
+Queue - [3 | 4 | 5 | 0 | 1 | 2]
+Size  - 6
+
+Queue - [4 | 5 | 0 | 1 | 2]
+Size  - 5
+
+Queue - [4 | 5 | 0 | 1 | 2 | 3]
+Size  - 6
+
+Queue - [5 | 0 | 1 | 2 | 3]
+Size  - 5
+
+Queue - [5 | 0 | 1 | 2 | 3 | 4]
+Size  - 6
+
+Queue - [0 | 1 | 2 | 3 | 4]
+Size  - 5
+
+Queue - [0 | 1 | 2 | 3 | 4 | 5]
+Size  - 6
+
+Queue - [1 | 2 | 3 | 4 | 5]
+Size  - 5
+
+----- Stack -----
+Stack - []
+Size  - 0
+
+Stack - [1]
+Size  - 1
+
+Stack - [1 | 2]
+Size  - 2
+
+Stack - [1 | 2 | 3]
+Size  - 3
+
+Stack - [1 | 2 | 3 | 4]
+Size  - 4
+
+Stack - [1 | 2 | 3 | 4 | 5]
+Size  - 5
+
+Stack - [1 | 2 | 3 | 4 | 5 | 0]
+Size  - 6
+
+Stack - [1 | 2 | 3 | 4 | 5]
+Size  - 5
+

@@ -3,6 +3,8 @@
 
 #include "array_list.h"
 
+#include <iostream>
+
 class HashMap
 {
 private:
@@ -32,9 +34,9 @@ private:
     // Private methods
     void resize();
 
-    EntryNode *get_entry(int key);
+    EntryNode *get_entry(int key) const;
 
-    int hash(int key);
+    int hash(int key) const;
 
     void chain_add(int key, int value);
     void chain_remove(int key);
@@ -44,12 +46,12 @@ public:
     HashMap();
 
     // Getters
-    int get_size();
-    ArrayList get_keys();
-    ArrayList get_values();
+    int get_size() const;
+    ArrayList get_keys() const;
+    ArrayList get_values() const;
 
-    int get(int key);
-    bool has(int key);
+    int get(int key) const;
+    bool has(int key) const;
 
     // Setters
     void set(int key, int value);
@@ -59,8 +61,8 @@ public:
     void remove(int key);
 
     // Display
-    void display(int padding_len);
-    void display_info();
+    friend std::ostream &operator<<(std::ostream &out, const HashMap &hash_map);
+    void display_info() const;
 };
 
 #endif

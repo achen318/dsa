@@ -1,6 +1,8 @@
 #ifndef ARRAY_LIST_H
 #define ARRAY_LIST_H
 
+#include <iostream>
+
 class ArrayList
 {
 private:
@@ -10,17 +12,17 @@ private:
 
     // Private methods
     void resize();
-    int assert_index(int index);
+    int assert_index(int index) const;
 
 public:
     // Constructor
     ArrayList();
 
     // Getters
-    int get_size();
+    int get_size() const;
 
-    int get(int index);
-    int find(int value);
+    int get(int index) const;
+    int find(int value) const;
 
     // Setters
     void set(int index, int value);
@@ -33,8 +35,8 @@ public:
     int remove_value(int value);
 
     // Display
-    void display();
-    void display_info();
+    friend std::ostream &operator<<(std::ostream &out, const ArrayList &array_list);
+    void display_info() const;
 };
 
 #endif
