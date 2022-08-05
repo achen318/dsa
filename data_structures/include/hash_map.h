@@ -8,19 +8,13 @@
 class HashMap
 {
 private:
-    class EntryNode
+    struct EntryNode
     {
-    public:
         int key;
         int value;
         EntryNode *next;
 
-        EntryNode(int key, int value)
-        {
-            this->key = key;
-            this->value = value;
-            this->next = nullptr;
-        }
+        EntryNode(int key, int value) : key(key), value(value), next(nullptr) {}
     };
 
     EntryNode **table;
