@@ -8,10 +8,10 @@ class LinkedList
 private:
     struct Node
     {
+        Node(int value) : value(value), next(nullptr) {}
+
         int value;
         Node *next;
-
-        Node(int value) : value(value), next(nullptr) {}
     };
 
     Node *head;

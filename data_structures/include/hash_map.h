@@ -10,11 +10,11 @@ class HashMap
 private:
     struct EntryNode
     {
+        EntryNode(int key, int value) : key(key), value(value), next(nullptr) {}
+
         int key;
         int value;
         EntryNode *next;
-
-        EntryNode(int key, int value) : key(key), value(value), next(nullptr) {}
     };
 
     EntryNode **table;
