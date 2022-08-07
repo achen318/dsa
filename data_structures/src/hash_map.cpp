@@ -130,12 +130,12 @@ int HashMap::get_size() const
     return this->size;
 }
 
-ArrayList HashMap::get_keys() const
+const ArrayList HashMap::get_keys() const
 {
     return this->keys;
 }
 
-ArrayList HashMap::get_values() const
+const ArrayList HashMap::get_values() const
 {
     return this->values;
 }

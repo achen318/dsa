@@ -41,8 +41,8 @@ public:
 
     // Getters
     int get_size() const;
-    ArrayList get_keys() const;
-    ArrayList get_values() const;
+    const ArrayList get_keys() const;
+    const ArrayList get_values() const;
 
     int get(int key) const;
     bool has(int key) const;
