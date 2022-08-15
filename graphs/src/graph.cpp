@@ -107,7 +107,7 @@ std::ostream &operator<<(std::ostream &out, const Graph &graph)
         // For each outgoing edge, display the destination vertex and weight
         for (const auto &[to_vertex, weight] : outgoing_edges)
         {
-            out << '(' << to_vertex << ", " << weight << ')';
+            out << to_vertex << ": " << weight;
 
             // If this is not the last outgoing edge, add a separator
             if (e_printed != outgoing_edges.size() - 1)
