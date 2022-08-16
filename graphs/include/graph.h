@@ -24,7 +24,6 @@ private:
     // Private methods
     void assert_vertex_exists(Vertex vertex, const std::string &param = "vertex") const;
     void assert_edge_exists(Vertex from_vertex, Vertex to_vertex) const;
-    OutgoingEdges *get_edges(Vertex from_vertex) const;
 
 public:
     // Constructor
@@ -39,6 +38,7 @@ public:
     void remove_vertex(Vertex vertex);
 
     // Edge methods
+    OutgoingEdges *get_edges(Vertex vertex) const;
     void add_edge(Vertex from_vertex, Vertex to_vertex, Weight weight = 1);
     void remove_edge(Vertex from_vertex, Vertex to_vertex);
 

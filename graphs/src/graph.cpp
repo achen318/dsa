@@ -15,11 +15,6 @@ void Graph::assert_edge_exists(Vertex from_vertex, Vertex to_vertex) const
         throw std::invalid_argument("edge " + std::to_string(from_vertex) + " -> " + std::to_string(to_vertex) + " does not exist");
 }
 
-OutgoingEdges *Graph::get_edges(Vertex from_vertex) const
-{
-    return &this->vertices->at(from_vertex);
-}
-
 // ----- Constructor -----
 Graph::Graph()
 {
@@ -35,9 +30,6 @@ bool Graph::has_vertex(Vertex vertex) const
 
 bool Graph::is_directed(Vertex from_vertex, Vertex to_vertex) const
 {
-    this->assert_vertex_exists(from_vertex, "from_vertex");
-    this->assert_vertex_exists(to_vertex, "to_vertex");
-
     OutgoingEdges *edges = this->get_edges(from_vertex);
     return edges->find(to_vertex) != edges->end();
 }
@@ -63,9 +55,14 @@ void Graph::remove_vertex(Vertex vertex)
 }
 
 // ----- Edge methods -----
+OutgoingEdges *Graph::get_edges(Vertex vertex) const
+{
+    this->assert_vertex_exists(vertex);
+    return &this->vertices->at(vertex);
+}
+
 void Graph::add_edge(Vertex from_vertex, Vertex to_vertex, Weight weight)
 {
-    this->assert_vertex_exists(from_vertex, "from_vertex");
     this->assert_vertex_exists(to_vertex, "to_vertex");
 
     this->get_edges(from_vertex)->insert({to_vertex, weight});
