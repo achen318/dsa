@@ -1,3 +1,4 @@
+#include "breadth_first_search.h"
 #include "depth_first_search.h"
 #include "graph.h"
 
@@ -57,10 +58,18 @@ Graph *generate_graph()
     return graph;
 }
 
+void test_bfs(Graph *graph)
+{
+    std::cout << "----- Breadth-First Search -----" << '\n';
+    bfs(graph, 1);
+    std::cout << '\n';
+}
+
 void test_dfs(Graph *graph)
 {
-    std::cout << "----- Depth First Search -----" << '\n';
+    std::cout << "----- Depth-First Search -----" << '\n';
     dfs(graph, 1);
+    std::cout << '\n';
 }
 
 int main()
@@ -68,8 +77,8 @@ int main()
     test_graph(3);
 
     Graph *graph = generate_graph();
-    graph->display_info();
 
+    test_bfs(graph);
     test_dfs(graph);
 
     return 0;

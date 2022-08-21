@@ -1,8 +1,9 @@
 # Graphs
 
-| Algorithm                | Time Complexity  |
-| ------------------------ | ---------------- |
-| Depth-First Search (DFS) | `O(\|V\|+\|E\|)` |
+| Algorithm                  | Time Complexity  |
+| -------------------------- | ---------------- |
+| Breadth-First Search (BFS) | `O(\|V\|+\|E\|)` |
+| Depth-First Search (DFS)   | `O(\|V\|+\|E\|)` |
 
 ## Notes
 
