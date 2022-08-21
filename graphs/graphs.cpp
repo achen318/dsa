@@ -1,3 +1,4 @@
+#include "depth_first_search.h"
 #include "graph.h"
 
 #include <iostream>
@@ -38,9 +39,38 @@ void test_graph(int size)
     }
 }
 
+Graph *generate_graph()
+{
+    Graph *graph = new Graph();
+
+    for (int i = 1; i <= 5; i++)
+        graph->add_vertex(i);
+
+    graph->add_edge(1, 2);
+    graph->add_edge(1, 3);
+
+    graph->add_edge(2, 4);
+    graph->add_edge(3, 4);
+
+    graph->add_edge(4, 5);
+
+    return graph;
+}
+
+void test_dfs(Graph *graph)
+{
+    std::cout << "----- Depth First Search -----" << '\n';
+    dfs(graph, 1);
+}
+
 int main()
 {
-    test_graph(5);
+    test_graph(3);
+
+    Graph *graph = generate_graph();
+    graph->display_info();
+
+    test_dfs(graph);
 
     return 0;
 }
