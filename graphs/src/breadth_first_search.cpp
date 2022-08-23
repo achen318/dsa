@@ -4,8 +4,10 @@
 #include <queue>
 #include <set>
 
-void bfs(Graph *graph, Vertex source)
+std::vector<Vertex> *bfs(Graph *graph, Vertex source)
 {
+    std::vector<Vertex> *returned_bfs = new std::vector<Vertex>();
+
     // Store visited vertices & queue of vertices to visit
     std::set<Vertex> visited;
     std::queue<Vertex> queue;
@@ -18,8 +20,8 @@ void bfs(Graph *graph, Vertex source)
     {
         Vertex vertex = queue.front();
 
-        // Print vertex & dequeue it from the queue
-        std::cout << "Visiting " << vertex << '\n';
+        // Insert vertex into returned_bfs & dequeue it from the queue
+        returned_bfs->push_back(vertex);
         queue.pop();
 
         // Iterate through all outgoing edges from vertex
@@ -33,4 +35,13 @@ void bfs(Graph *graph, Vertex source)
                 queue.push(to_vertex);
             }
     }
+
+    return returned_bfs;
+}
+
+void display_bfs(Graph *graph, Vertex source)
+{
+    for (Vertex vertex : *bfs(graph, source))
+        std::cout << "Visiting " << vertex << '\n';
+    std::cout << '\n';
 }

@@ -4,8 +4,10 @@
 #include <set>
 #include <stack>
 
-void dfs(Graph *graph, Vertex source)
+std::vector<Vertex> *dfs(Graph *graph, Vertex source)
 {
+    std::vector<Vertex> *returned_dfs = new std::vector<Vertex>();
+
     // Store visited vertices & stack of vertices to visit
     std::set<Vertex> visited;
     std::stack<Vertex> stack;
@@ -18,8 +20,8 @@ void dfs(Graph *graph, Vertex source)
     {
         Vertex vertex = stack.top();
 
-        // Print vertex & pop it from the stack
-        std::cout << "Visiting " << vertex << '\n';
+        // Insert vertex into returned_dfs & pop it from the stack
+        returned_dfs->push_back(vertex);
         stack.pop();
 
         // Iterate through all outgoing edges from vertex
@@ -33,4 +35,13 @@ void dfs(Graph *graph, Vertex source)
                 stack.push(to_vertex);
             }
     }
+
+    return returned_dfs;
+}
+
+void display_dfs(Graph *graph, Vertex source)
+{
+    for (Vertex vertex : *dfs(graph, source))
+        std::cout << "Visiting " << vertex << '\n';
+    std::cout << '\n';
 }
