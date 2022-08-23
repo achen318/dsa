@@ -1,5 +1,6 @@
 #include "breadth_first_search.h"
 #include "depth_first_search.h"
+#include "dijkstras.h"
 #include "graph.h"
 
 #include <iostream>
@@ -40,7 +41,7 @@ void test_graph(int size)
     }
 }
 
-Graph *generate_graph()
+Graph *generate_unweighted_graph()
 {
     Graph *graph = new Graph();
 
@@ -58,28 +59,55 @@ Graph *generate_graph()
     return graph;
 }
 
+Graph *generate_weighted_graph()
+{
+    Graph *graph = new Graph();
+
+    for (int i = 1; i <= 4; i++)
+        graph->add_vertex(i);
+
+    graph->add_edge(1, 2, 4.0);
+    graph->add_edge(1, 3, 8.0);
+
+    graph->add_edge(2, 3, 1.0);
+    graph->add_edge(2, 4, 8.0);
+
+    graph->add_edge(3, 2, 1.0);
+    graph->add_edge(3, 4, 3.0);
+
+    return graph;
+}
+
 void test_bfs(Graph *graph)
 {
     std::cout << "----- Breadth-First Search -----" << '\n';
-    bfs(graph, 1);
-    std::cout << '\n';
+    display_bfs(graph, 1);
 }
 
 void test_dfs(Graph *graph)
 {
     std::cout << "----- Depth-First Search -----" << '\n';
-    dfs(graph, 1);
-    std::cout << '\n';
+    display_dfs(graph, 1);
+}
+
+void test_dijkstras(Graph *graph)
+{
+    std::cout << "----- Dijkstra's Algorithm -----" << '\n';
+    display_dijkstras(graph, 1);
 }
 
 int main()
 {
     test_graph(3);
 
-    Graph *graph = generate_graph();
+    Graph *unweighted_graph = generate_unweighted_graph();
 
-    test_bfs(graph);
-    test_dfs(graph);
+    test_bfs(unweighted_graph);
+    test_dfs(unweighted_graph);
+
+    Graph *weighted_graph = generate_weighted_graph();
+
+    test_dijkstras(weighted_graph);
 
     return 0;
 }
