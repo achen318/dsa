@@ -35,6 +35,16 @@ bool Graph::is_directed(Vertex from_vertex, Vertex to_vertex) const
 }
 
 // ----- Vertex methods -----
+std::set<Vertex> *Graph::get_vertices() const
+{
+    std::set<Vertex> *vertices = new std::set<Vertex>();
+
+    for (auto &[vertex, _] : *this->vertices)
+        vertices->insert(vertex);
+
+    return vertices;
+}
+
 void Graph::add_vertex(Vertex vertex)
 {
     if (this->has_vertex(vertex))
@@ -102,7 +112,7 @@ std::ostream &operator<<(std::ostream &out, const Graph &graph)
         size_t e_printed = 0;
 
         // For each outgoing edge, display the destination vertex and weight
-        for (const auto &[to_vertex, weight] : outgoing_edges)
+        for (const auto [to_vertex, weight] : outgoing_edges)
         {
             out << to_vertex << ": " << weight;
 

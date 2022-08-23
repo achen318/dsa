@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <map>
+#include <set>
 #include <string>
 
 namespace graph
@@ -34,6 +35,7 @@ public:
     bool is_directed(Vertex from_vertex, Vertex to_vertex) const;
 
     // Vertex methods
+    std::set<Vertex> *get_vertices() const;
     void add_vertex(Vertex vertex);
     void remove_vertex(Vertex vertex);
 
