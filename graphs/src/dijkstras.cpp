@@ -10,11 +10,11 @@ DijkstrasMap *dijkstras(Graph *graph, Vertex source)
     // Map of vertices to their distance from source and the path to them
     DijkstrasMap *dijkstras_map = new DijkstrasMap();
 
-    // Initialize the map with infinite distances and paths starting at source
+    // Initialize the map with infinite distances and empty paths
     for (Vertex vertex : *graph->get_vertices())
         if (vertex != source)
             dijkstras_map->insert({vertex,
-                                   {INFINITY, Path{source}}});
+                                   {INFINITY, Path{}}});
 
     // Minimum priority queue of WeightVertex pairs
     std::priority_queue<WeightVertexPair,
@@ -34,6 +34,9 @@ DijkstrasMap *dijkstras(Graph *graph, Vertex source)
         // For all outgoing edges from min_vertex
         for (auto [vertex, weight] : *graph->get_edges(min_vertex))
         {
+            if (vertex == source)
+                continue;
+
             // Throw an error if weight is negative
             if (weight < 0)
                 throw std::invalid_argument(
