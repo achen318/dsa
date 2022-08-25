@@ -14,6 +14,10 @@ ShortestPathsMap *dijkstras(Graph *graph, Vertex source)
         if (vertex != source)
             dijkstras_map->insert({vertex,
                                    {INFINITY, Path{}}});
+        else
+            // Initialize the source distance to 0
+            dijkstras_map->insert({vertex,
+                                   {0, Path{source}}});
 
     // Minimum priority queue of WeightVertex pairs
     std::priority_queue<WeightVertexPair,
@@ -22,6 +26,7 @@ ShortestPathsMap *dijkstras(Graph *graph, Vertex source)
         priority_queue;
 
     // Start Dijkstra's algorithm from source (distance from source to source is 0)
+    dijkstras_map->at(source).first = 0;
     priority_queue.push({0, source});
 
     while (!priority_queue.empty())
@@ -33,9 +38,6 @@ ShortestPathsMap *dijkstras(Graph *graph, Vertex source)
         // For all outgoing edges from min_vertex
         for (auto [vertex, weight] : *graph->get_edges(min_vertex))
         {
-            if (vertex == source)
-                continue;
-
             // Throw an error if weight is negative
             if (weight < 0)
                 throw std::invalid_argument(
@@ -47,7 +49,7 @@ ShortestPathsMap *dijkstras(Graph *graph, Vertex source)
             if (dijkstras_map->at(vertex).first > new_dist)
             {
                 // Get the path to min_vertex & add vertex to the end
-                Path new_path = (min_vertex == source) ? Path{source} : dijkstras_map->at(min_vertex).second;
+                Path new_path = dijkstras_map->at(min_vertex).second;
                 new_path.push_back(vertex);
 
                 // Update the distance-path pair & add to priority queue
