@@ -40,7 +40,6 @@ void test_graph(int size)
 // ----- Graph generation -----
 Graph *generate_graph_a()
 {
-    // An unweighted digraph (for BFS and DFS)
     Graph *graph_a = new Graph();
 
     for (int i = 1; i <= 5; i++)
@@ -59,7 +58,6 @@ Graph *generate_graph_a()
 
 Graph *generate_graph_b()
 {
-    // A positively-weighted digraph (for Dijkstra's)
     Graph *graph_b = new Graph();
 
     for (int i = 1; i <= 4; i++)
@@ -79,7 +77,6 @@ Graph *generate_graph_b()
 
 Graph *generate_graph_c()
 {
-    // A digraph containing negative weights (for Bellman-Ford)
     Graph *graph_c = new Graph();
 
     for (int i = 1; i <= 5; i++)
