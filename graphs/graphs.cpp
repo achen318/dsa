@@ -1,3 +1,4 @@
+#include "bellman_ford.h"
 #include "breadth_first_search.h"
 #include "depth_first_search.h"
 #include "dijkstras.h"
@@ -66,18 +67,19 @@ Graph *generate_weighted_graph()
     for (int i = 1; i <= 4; i++)
         graph->add_vertex(i);
 
-    graph->add_edge(1, 2, 4.0);
-    graph->add_edge(1, 3, 8.0);
+    graph->add_edge(1, 2, 4);
+    graph->add_edge(1, 3, 8);
 
-    graph->add_edge(2, 3, 1.0);
-    graph->add_edge(2, 4, 8.0);
+    graph->add_edge(2, 3, 1);
+    graph->add_edge(2, 4, 8);
 
-    graph->add_edge(3, 2, 1.0);
-    graph->add_edge(3, 4, 3.0);
+    graph->add_edge(3, 2, 1);
+    graph->add_edge(3, 4, 3);
 
     return graph;
 }
 
+// ----- Graph traversal -----
 void test_bfs(Graph *graph)
 {
     std::cout << "----- Breadth-First Search -----" << '\n';
@@ -90,6 +92,13 @@ void test_dfs(Graph *graph)
     display_dfs(graph, 1);
 }
 
+// ----- Shortest path -----
+void test_bellman_ford(Graph *graph)
+{
+    std::cout << "----- Bellman-Ford Algorithm -----" << '\n';
+    display_bellman_ford(graph, 1);
+}
+
 void test_dijkstras(Graph *graph)
 {
     std::cout << "----- Dijkstra's Algorithm -----" << '\n';
@@ -100,13 +109,16 @@ int main()
 {
     test_graph(3);
 
+    // ----- Graph traversal -----
     Graph *unweighted_graph = generate_unweighted_graph();
 
     test_bfs(unweighted_graph);
     test_dfs(unweighted_graph);
 
+    // ----- Shortest path -----
     Graph *weighted_graph = generate_weighted_graph();
 
+    test_bellman_ford(weighted_graph);
     test_dijkstras(weighted_graph);
 
     return 0;
