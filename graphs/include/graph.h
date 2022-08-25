@@ -5,14 +5,31 @@
 #include <map>
 #include <set>
 #include <string>
+#include <utility>
+#include <vector>
 
 namespace graph
 {
+    // ----- Graph components -----
     using Vertex = int;
     using Weight = double;
 
     using OutgoingEdges = std::map<Vertex, Weight>;
     using Vertices = std::map<Vertex, OutgoingEdges>;
+
+    // ----- Graph traversal -----
+    using Path = std::vector<Vertex>;
+
+    // ----- Shortest path stuff -----
+    using DistancePathPair = std::pair<Weight, Path>;
+    using ShortestPathsMap = std::map<Vertex, DistancePathPair>;
+
+    // Used in priority queue to compare vertices by their distance from source
+    // Since the first item in the pair is compared, the weight is first
+    using WeightVertexPair = std::pair<Weight, Vertex>;
+
+    // INFINITY represents a tentative distance that is not yet known
+    const Weight INFINITY = std::numeric_limits<Weight>::infinity();
 }
 
 using namespace graph;

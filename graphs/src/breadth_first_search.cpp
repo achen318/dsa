@@ -4,9 +4,9 @@
 #include <queue>
 #include <set>
 
-std::vector<Vertex> *bfs(Graph *graph, Vertex source)
+Path *bfs(Graph *graph, Vertex source)
 {
-    std::vector<Vertex> *returned_bfs = new std::vector<Vertex>();
+    Path *returned_bfs = new Path();
 
     // Store visited vertices & queue of vertices to visit
     std::set<Vertex> visited;

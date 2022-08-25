@@ -3,12 +3,11 @@
 #include <iostream>
 #include <queue>
 #include <stdexcept>
-#include <string>
 
-DijkstrasMap *dijkstras(Graph *graph, Vertex source)
+ShortestPathsMap *dijkstras(Graph *graph, Vertex source)
 {
     // Map of vertices to their distance from source and the path to them
-    DijkstrasMap *dijkstras_map = new DijkstrasMap();
+    ShortestPathsMap *dijkstras_map = new ShortestPathsMap();
 
     // Initialize the map with infinite distances and empty paths
     for (Vertex vertex : *graph->get_vertices())

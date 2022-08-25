@@ -3,11 +3,9 @@
 
 #include "graph.h"
 
-#include <vector>
-
 using namespace graph;
 
-std::vector<Vertex> *bfs(Graph *graph, Vertex source);
+Path *bfs(Graph *graph, Vertex source);
 void display_bfs(Graph *graph, Vertex source);
 
 #endif

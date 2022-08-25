@@ -4,9 +4,9 @@
 #include <set>
 #include <stack>
 
-std::vector<Vertex> *dfs(Graph *graph, Vertex source)
+Path *dfs(Graph *graph, Vertex source)
 {
-    std::vector<Vertex> *returned_dfs = new std::vector<Vertex>();
+    Path *returned_dfs = new Path();
 
     // Store visited vertices & stack of vertices to visit
     std::set<Vertex> visited;
