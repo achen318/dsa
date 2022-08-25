@@ -2,7 +2,6 @@
 #include "breadth_first_search.h"
 #include "depth_first_search.h"
 #include "dijkstras.h"
-#include "graph.h"
 
 #include <iostream>
 
@@ -23,16 +22,12 @@ void test_graph(int size)
 
     // Add edges between vertices
     for (int i = 1; i <= size; i++)
-    {
         for (int j = 1; j <= size; j++)
-        {
             if (i != j)
             {
                 graph.add_edge(i, j);
                 graph.display_info();
             }
-        }
-    }
 
     // Remove vertices
     for (int i = 1; i <= size; i++)
@@ -42,41 +37,63 @@ void test_graph(int size)
     }
 }
 
-Graph *generate_unweighted_graph()
+// ----- Graph generation -----
+Graph *generate_graph_a()
 {
-    Graph *graph = new Graph();
+    // An unweighted digraph (for BFS and DFS)
+    Graph *graph_a = new Graph();
 
     for (int i = 1; i <= 5; i++)
-        graph->add_vertex(i);
+        graph_a->add_vertex(i);
 
-    graph->add_edge(1, 2);
-    graph->add_edge(1, 3);
+    graph_a->add_edge(1, 2);
+    graph_a->add_edge(1, 3);
 
-    graph->add_edge(2, 4);
-    graph->add_edge(3, 4);
+    graph_a->add_edge(2, 4);
+    graph_a->add_edge(3, 4);
 
-    graph->add_edge(4, 5);
+    graph_a->add_edge(4, 5);
 
-    return graph;
+    return graph_a;
 }
 
-Graph *generate_weighted_graph()
+Graph *generate_graph_b()
 {
-    Graph *graph = new Graph();
+    // A positively-weighted digraph (for Dijkstra's)
+    Graph *graph_b = new Graph();
 
     for (int i = 1; i <= 4; i++)
-        graph->add_vertex(i);
+        graph_b->add_vertex(i);
 
-    graph->add_edge(1, 2, 4);
-    graph->add_edge(1, 3, 8);
+    graph_b->add_edge(1, 2, 4);
+    graph_b->add_edge(1, 3, 8);
 
-    graph->add_edge(2, 3, 1);
-    graph->add_edge(2, 4, 8);
+    graph_b->add_edge(2, 3, 1);
+    graph_b->add_edge(2, 4, 8);
 
-    graph->add_edge(3, 2, 1);
-    graph->add_edge(3, 4, 3);
+    graph_b->add_edge(3, 2, 1);
+    graph_b->add_edge(3, 4, 3);
 
-    return graph;
+    return graph_b;
+}
+
+Graph *generate_graph_c()
+{
+    // A digraph containing negative weights (for Bellman-Ford)
+    Graph *graph_c = new Graph();
+
+    for (int i = 1; i <= 5; i++)
+        graph_c->add_vertex(i);
+
+    graph_c->add_edge(1, 2, 1);
+    graph_c->add_edge(1, 3, 10);
+
+    graph_c->add_edge(2, 4, 2);
+    graph_c->add_edge(3, 4, -10);
+
+    graph_c->add_edge(4, 5, 3);
+
+    return graph_c;
 }
 
 // ----- Graph traversal -----
@@ -109,17 +126,18 @@ int main()
 {
     test_graph(3);
 
-    // ----- Graph traversal -----
-    Graph *unweighted_graph = generate_unweighted_graph();
+    // ----- Graph generation -----
+    Graph *graph_a = generate_graph_a();
+    Graph *graph_b = generate_graph_b();
+    Graph *graph_c = generate_graph_c();
 
-    test_bfs(unweighted_graph);
-    test_dfs(unweighted_graph);
+    // ----- Graph traversal -----
+    test_bfs(graph_a);
+    test_dfs(graph_a);
 
     // ----- Shortest path -----
-    Graph *weighted_graph = generate_weighted_graph();
-
-    test_bellman_ford(weighted_graph);
-    test_dijkstras(weighted_graph);
+    test_dijkstras(graph_b);
+    test_bellman_ford(graph_c);
 
     return 0;
 }
