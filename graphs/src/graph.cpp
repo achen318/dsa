@@ -160,3 +160,33 @@ void Graph::display_info() const
     std::cout << "Vertices |V|  - " << this->get_num_vertices() << '\n';
     std::cout << "Edges    |E|  - " << this->get_num_edges() << "\n\n";
 }
+
+// ----- Algorithm display -----
+void display_graph_traversal(Path *path)
+{
+    for (Vertex vertex : *path)
+        std::cout << "Visiting " << vertex << '\n';
+    std::cout << '\n';
+}
+
+void display_shortest_paths(ShortestPathsMap *shortest_paths, Vertex source)
+{
+    for (const auto [vertex, distance_path_pair] : *shortest_paths)
+    {
+        const auto [distance, path] = distance_path_pair;
+
+        std::cout << "Distance from " << source << " -> " << vertex << ": " << distance << " [";
+
+        for (size_t i = 0; i < path.size(); i++)
+        {
+            std::cout << path[i];
+
+            // If this is not the last element, add a separator
+            if (i != path.size() - 1)
+                std::cout << " -> ";
+        }
+
+        std::cout << "]\n";
+    }
+    std::cout << '\n';
+}

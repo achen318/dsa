@@ -62,22 +62,5 @@ ShortestPathsMap *dijkstras(Graph *graph, Vertex source)
 
 void display_dijkstras(Graph *graph, Vertex source)
 {
-    for (const auto [vertex, distance_path_pair] : *dijkstras(graph, source))
-    {
-        const auto [distance, path] = distance_path_pair;
-
-        std::cout << "Distance from " << source << " -> " << vertex << ": " << distance << " [";
-
-        for (size_t i = 0; i < path.size(); i++)
-        {
-            std::cout << path[i];
-
-            // If this is not the last element, add a separator
-            if (i != path.size() - 1)
-                std::cout << " -> ";
-        }
-
-        std::cout << "]\n";
-    }
-    std::cout << '\n';
+    display_shortest_paths(dijkstras(graph, source), source);
 }

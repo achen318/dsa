@@ -73,4 +73,8 @@ public:
     void display_info() const;
 };
 
+// Algorithm display
+void display_graph_traversal(Path *path);
+void display_shortest_paths(ShortestPathsMap *shortest_paths, Vertex source);
+
 #endif

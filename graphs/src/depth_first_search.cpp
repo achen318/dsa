@@ -41,7 +41,5 @@ Path *dfs(Graph *graph, Vertex source)
 
 void display_dfs(Graph *graph, Vertex source)
 {
-    for (Vertex vertex : *dfs(graph, source))
-        std::cout << "Visiting " << vertex << '\n';
-    std::cout << '\n';
+    display_graph_traversal(dfs(graph, source));
 }

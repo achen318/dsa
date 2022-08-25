@@ -41,7 +41,5 @@ Path *bfs(Graph *graph, Vertex source)
 
 void display_bfs(Graph *graph, Vertex source)
 {
-    for (Vertex vertex : *bfs(graph, source))
-        std::cout << "Visiting " << vertex << '\n';
-    std::cout << '\n';
+    display_graph_traversal(bfs(graph, source));
 }
