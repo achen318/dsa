@@ -1,8 +1,6 @@
 #include "dijkstras.h"
 
-#include <iostream>
 #include <queue>
-#include <stdexcept>
 
 ShortestPathsMap *dijkstras(Graph *graph, Vertex source)
 {

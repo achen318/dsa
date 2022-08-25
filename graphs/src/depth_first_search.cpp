@@ -1,6 +1,5 @@
 #include "depth_first_search.h"
 
-#include <iostream>
 #include <set>
 #include <stack>
 

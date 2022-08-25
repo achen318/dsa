@@ -1,7 +1,5 @@
 #include "graph.h"
 
-#include <stdexcept>
-
 // ----- Private methods -----
 void Graph::assert_vertex_exists(Vertex vertex, const std::string &param) const
 {
