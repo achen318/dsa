@@ -47,7 +47,10 @@ public:
     // Constructor
     Graph();
 
-    // Boolean methods
+    // Primitive methods
+    int get_num_vertices() const;
+    int get_num_edges() const;
+
     bool has_vertex(Vertex vertex) const;
     bool is_directed(Vertex from_vertex, Vertex to_vertex) const;
 

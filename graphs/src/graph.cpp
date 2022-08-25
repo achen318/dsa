@@ -21,7 +21,22 @@ Graph::Graph()
     this->vertices = new Vertices();
 }
 
-// ----- Boolean methods -----
+// ----- Primitive methods -----
+int Graph::get_num_vertices() const
+{
+    return this->vertices->size();
+}
+
+int Graph::get_num_edges() const
+{
+    int num_edges = 0;
+
+    for (auto &[_, edges] : *this->vertices)
+        num_edges += edges.size();
+
+    return num_edges;
+}
+
 bool Graph::has_vertex(Vertex vertex) const
 {
     Vertices *vertices = this->vertices;
@@ -141,6 +156,7 @@ std::ostream &operator<<(std::ostream &out, const Graph &graph)
 
 void Graph::display_info() const
 {
-    std::cout << "Graph - " << *this << '\n';
-    std::cout << "Size  - " << this->vertices->size() << "\n\n";
+    std::cout << "Graph         - " << *this << '\n';
+    std::cout << "Vertices |V|  - " << this->get_num_vertices() << '\n';
+    std::cout << "Edges    |E|  - " << this->get_num_edges() << "\n\n";
 }
